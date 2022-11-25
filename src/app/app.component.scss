@@ -34,8 +34,8 @@
         margin-top: 15px;
         padding: 15px;
         // background: rgb(194, 187, 187);
-        border: solid 1px gray;
-        border-radius: 10px;
+        // border: solid 1px gray;
+        // border-radius: 10px;
         width: 90vmin;
 
 
@@ -63,5 +63,13 @@
 
     .image-anchor-container {
         margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            max-width: 90vw;
+        }
     }
 }
