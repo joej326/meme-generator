@@ -8,6 +8,8 @@
     h1, h2, h3, h4 {
         text-align: center;
         margin-bottom: 0;
+        margin-left: 20px;
+        margin-right: 20px;
     }
 
     h2, h3 {
@@ -34,7 +36,7 @@
         // background: rgb(194, 187, 187);
         border: solid 1px gray;
         border-radius: 10px;
-        width: 500px;
+        width: 90vmin;
 
 
         .input-label-container {
