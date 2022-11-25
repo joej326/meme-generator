@@ -1,23 +1,32 @@
 <div class="main-container">
-  <form *ngIf="!imgUrl" [formGroup]="form" (ngSubmit)="onSubmit();">
+  <ng-container *ngIf="!imgUrl">
+    <h1>Random Meme Generator</h1>
+    <h2>I've fetched a meme template for you.</h2>
+    <h3>Fill in the boxes for it and I'll show you how it looks!</h3>
+  
+    <form [formGroup]="form" (ngSubmit)="onSubmit();">
 
-    <div class="input-label-container">
-      <label for="top-text-field">Top text:</label>
-      <input type="text" id="top-text-field" formControlName="topTextField" autofocus>
-    </div>
+      <div *ngFor="let iteration of boxIterator; let i = index" 
+        class="input-label-container">
+
+        <label [for]="'text-field' + (i + 1)">Text for box {{ i + 1 }}:</label>
+        <input type="text" [id]="'text-field' + (i + 1)" [formControlName]="'textField' + (i + 1)" [autofocus]="i === 0">
+
+      </div>
     
-    <div class="input-label-container">
-      <label for="bottom-text-field">Bottom text:</label>
-      <input type="text" id="bottom-text-field" formControlName="bottomTextField">
-    </div>
-    
-    <button [disabled]="form.invalid">Make that meme!</button>
-  </form>
+      <button [disabled]="form.invalid">Make that meme!</button>
+    </form>
+
+  </ng-container>
+
   
+  <ng-container *ngIf="imgUrl">
+    <a class="image-anchor-container" [href]="pageUrl" target="_blank">
+      <img [src]="imgUrl" alt="generated meme">
+    </a>
+    <h4>Select image to go to this meme's imgflig.com page.<br>(only people with its exact link can view it)</h4>
+  </ng-container>
   
-  <a *ngIf="imgUrl" [href]="pageUrl" target="_blank">
-    <img [src]="imgUrl" alt="generated meme">
-  </a>
 </div>
 
 
